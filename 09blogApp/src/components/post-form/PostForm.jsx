@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom'
 export default function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
     defaultValues: {
-      tittle: post?.title || "",
+      title: post?.title || "",
       slug: post?.slug || "",
       content: post?.content || "",
       status: post?.status || "active"
@@ -22,6 +22,7 @@ export default function PostForm({ post }) {
   const userData = useSelector((state) => state.auth.userData)
 
   const submit = async (data) => {
+    console.log("submit")
     if (post) {
       const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null
 
@@ -111,7 +112,7 @@ export default function PostForm({ post }) {
         />
         <Button
           type="submit"
-          bgColor={post ? "bggreen-500" : undefined}
+          bgColor={post ? "bg-green-500" : undefined}
           className="w-full"
         >{post ? "Update" : "Submit"}</Button>
       </div>

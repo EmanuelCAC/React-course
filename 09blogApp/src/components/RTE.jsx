@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Controller } from 'react-hook-form'
 import { Editor } from '@tinymce/tinymce-react'
 
 function RTE({
   name, control, label, defaultValue = ""
 }) {
+
+  const editorRef = useRef(null);
+  const log = () => {
+    if (editorRef.current) {
+      console.log(editorRef.current.getContent());
+    }
+  }
+
   return (
     <div className='w-full'>
       {
@@ -15,6 +23,8 @@ function RTE({
         control={control}
         render={({ field: { onChange } }) => (
           <Editor
+            apiKey='susahq1e617n621fjj2ibcc3131glcd9n56ki9d6pu8tzlht'
+            onInit={(evt, editor) => editorRef.current = editor}
             initialValue={defaultValue}
             init={{
               branding: false,

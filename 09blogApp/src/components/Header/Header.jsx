@@ -1,6 +1,6 @@
 import React from 'react'
-import { Container } from "../container/Conteiner"
-import { Logo } from "../Logo"
+import Container from "../container/Container"
+import Logo from "../Logo"
 import { Link } from 'react-router-dom'
 import LougoutBtn from './LougoutBtn'
 import { useNavigate } from 'react-router-dom'
@@ -33,7 +33,7 @@ function Header() {
     },
     {
       name: "Add Posts",
-      slug: "/add-posts",
+      slug: "/add-post",
       active: authStatus
     },
   ]
